@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyShootingRange : MonoBehaviour
 {
-    [SerializeField] private Transform playerPosition;
+    private GameObject playerObject;
     private Transform aimGunEndPointTransform;
     private Transform aimGunStartPointTransform;
     private Transform aimTransform;
@@ -23,15 +23,18 @@ public class EnemyShootingRange : MonoBehaviour
     }
 
     public event EventHandler<OnShootEventArgs> OnShoot;
+    private void Start()
+    {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+    }
 
-    
     void FixedUpdate()
     {
         aimTransform = transform.Find("Aim");        
         aimGunEndPointTransform = aimTransform.Find("GunEndPointPosition");
         aimGunStartPointTransform = aimTransform.Find("GunStartPointPosition");
 
-        float distanceFromPlayer = Vector2.Distance(playerPosition.position, transform.position);
+        float distanceFromPlayer = Vector2.Distance(playerObject.transform.position, transform.position);
         if (distanceFromPlayer < lineOfSite) {
             HandleShoot();
         }

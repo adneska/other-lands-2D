@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class EnemyAimWeapon : MonoBehaviour
 {
-    [SerializeField] private Transform pfBullet;
-    [SerializeField] private Transform playerPosition;
+    [SerializeField] private Transform pfBullet;    
     private Transform aimTransform;
-      
+    private GameObject playerObject;
+
 
     private void Awake()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         aimTransform = transform.Find("Aim");        
     }
     private void Update()
@@ -20,7 +21,7 @@ public class EnemyAimWeapon : MonoBehaviour
     }
     private void HandleAiming()
     {
-        Vector3 PlayerPosition = playerPosition.position;
+        Vector3 PlayerPosition = playerObject.transform.position;
 
         Vector3 aimDirection = (PlayerPosition - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;

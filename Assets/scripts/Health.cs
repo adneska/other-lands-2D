@@ -50,5 +50,6 @@ public class Health : MonoBehaviour
         if (OnDead != null) OnDead(this, EventArgs.Empty);
         Destroy(parentTransform.gameObject);
         UIHandler.score += 10;
+        EnemySpawnHandler.DecreaseEnemyCount();
     }
 }
