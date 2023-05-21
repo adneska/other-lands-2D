@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private HealthSystem healthSystem;
-    private Health health;
-    
     public void Setup(Vector3 shootDir)
     {
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();

@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 252094571454545712}
+  WeaponPF: {fileID: 7409779726606225997, guid: fe7310c102225d04e990fe7444788755,
+    type: 3}
 --- !u!1 &252094570570231010
 GameObject:
   m_ObjectHideFlags: 0

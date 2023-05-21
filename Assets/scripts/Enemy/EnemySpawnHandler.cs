@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnHandler : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;  // Префаб врага для спавна
+    [SerializeField] GameObject enemyPF;  // Префаб врага для спавна
     private float spawnInterval = 3f;  // Промежуток времени между спаунами
     private int maxEnemies = 5;  // Максимальное количество врагов на сцене    
 
@@ -27,7 +27,7 @@ public class EnemySpawnHandler : MonoBehaviour
                 if (randomChild != null)
                 {
                     // Создаем нового врага на позиции выбранного дочернего объекта
-                    GameObject newEnemy = Instantiate(enemyPrefab, randomChild.position, randomChild.rotation);
+                    GameObject newEnemy = Instantiate(enemyPF, randomChild.position, randomChild.rotation);
                     currentEnemies++;
                 }
 
