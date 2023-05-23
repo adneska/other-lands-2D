@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using UnityEngine.Rendering.Universal;
-using Unity.PlasticSCM.Editor.WebApi;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
