@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemyShootingRange : MonoBehaviour
@@ -10,6 +11,8 @@ public class EnemyShootingRange : MonoBehaviour
     private Transform aimGunEndPointTransform;
     private Transform aimGunStartPointTransform;
     private Transform aimTransform;
+
+
 
     [SerializeField] private float lineOfSite;
     private float nextShootTime;
@@ -28,6 +31,7 @@ public class EnemyShootingRange : MonoBehaviour
         playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
+
     void FixedUpdate()
     {
         aimTransform = transform.Find("Aim");        
@@ -36,8 +40,8 @@ public class EnemyShootingRange : MonoBehaviour
 
         float distanceFromPlayer = Vector2.Distance(playerObject.transform.position, transform.position);
         if (distanceFromPlayer < lineOfSite) {
-            HandleShoot();
-        }
+            HandleShoot();                     
+        }        
     }
     private void Reload()
     {
