@@ -40,7 +40,7 @@ public class EnemyShootingRange : MonoBehaviour
 
         float distanceFromPlayer = Vector2.Distance(playerObject.transform.position, transform.position);
         if (distanceFromPlayer < lineOfSite) {
-            HandleShoot();                     
+            HandleShoot();                 
         }        
     }
     private void Reload()

@@ -31,10 +31,6 @@ public class Target : MonoBehaviour
         }
         return closest;
     }
-
-
-        
-
     private void Awake()
     {
         if (targetList == null) targetList = new List<Target>();

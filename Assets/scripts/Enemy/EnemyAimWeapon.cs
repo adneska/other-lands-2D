@@ -9,7 +9,7 @@ public class EnemyAimWeapon : MonoBehaviour
     private Transform aimTransform;
     private GameObject playerObject;
 
-
+    
     private void Awake()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");

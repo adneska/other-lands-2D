@@ -41,7 +41,7 @@ public class PlayerMovementHandler : MonoBehaviour
             ChangeAnimationState(WalkAnimation);
         }
         else
-        {
+        {            
             ChangeAnimationState(IdleAnimation);
         }
         _rigidbody.velocity = _smoothedMovementInput * _Speed;
