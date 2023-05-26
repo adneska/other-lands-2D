@@ -8,10 +8,6 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     [SerializeField] TMP_Dropdown resolutionDropDown;
 
-    private float currentRefreshRate;
-    private int currentResolutionIndex = 0;
-    private List<Resolution> filteredResolutions;
-
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen= isFullscreen;
@@ -26,35 +22,26 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
-        filteredResolutions = new List<Resolution>();
 
+        resolutions = Screen.resolutions;
         resolutionDropDown.ClearOptions();
-        currentRefreshRate = Screen.currentResolution.refreshRate;
+        List<string> options = new List<string>();
+
+
+        int currentResolutionIndex = 0;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if (!filteredResolutions.Any(x => x.width == resolutions[i].width && x.height == resolutions[i].height))
-            {
-                filteredResolutions.Add(resolutions[i]);
-            }
-        }
-
-        List<string> options = new List<string>();
-
-        for (int i = 0; i < filteredResolutions.Count; i++)
-        {
-            string option = filteredResolutions[i].width + " x " + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + "Hz";
+            string option = resolutions[i].width + " x " + resolutions[i].height + " ";
             options.Add(option);
 
-            if (filteredResolutions[i].width == Screen.width &&
-                filteredResolutions[i].height == Screen.height &&
-                filteredResolutions[i].refreshRate == currentRefreshRate)
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
         }
-
+        
         resolutionDropDown.AddOptions(options);
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
