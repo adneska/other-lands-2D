@@ -58,6 +58,7 @@ public class UIHandler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameOverMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        EnemySpawnHandler.currentEnemies = 0;
         GameIsPaused = false;
     }
     private void UpdateAmmoText(object sender, PlayerAimWeapon.AmmoChangedEventArgs e)

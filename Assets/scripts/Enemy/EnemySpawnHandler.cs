@@ -8,7 +8,7 @@ public class EnemySpawnHandler : MonoBehaviour
     private float spawnInterval = 3f;
     private int maxEnemies = 5;
 
-    private static int currentEnemies = 0;
+    public static int currentEnemies = 0;
 
     private void Start()
     {
