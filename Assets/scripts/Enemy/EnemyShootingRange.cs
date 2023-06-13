@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyShootingRange : MonoBehaviour
@@ -8,11 +9,11 @@ public class EnemyShootingRange : MonoBehaviour
     private Transform aimGunStartPointTransform;
     private Transform aimTransform;
 
-
+    [SerializeField] AudioSource ShootingSound;
 
     [SerializeField] private float lineOfSite;
     private float nextShootTime;
-    private const float FIRE_RATE = .30f;
+    private const float FIRE_RATE = .50f;
     private int clipAmmo = 15, maxClipAmmo = 15;
 
     public class OnShootEventArgs : EventArgs
@@ -43,6 +44,11 @@ public class EnemyShootingRange : MonoBehaviour
     {
         clipAmmo = maxClipAmmo;
     }
+    private IEnumerator ReloadWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Reload();
+    }
     private void HandleShoot()
     {
         
@@ -51,17 +57,21 @@ public class EnemyShootingRange : MonoBehaviour
             if (Time.time >= nextShootTime)
             {
                 nextShootTime = Time.time + FIRE_RATE;
+
                 OnShoot?.Invoke(this, new OnShootEventArgs
                 {
                     gunStartPointPosition = aimGunStartPointTransform.position,
                     gunEndPointPosition = aimGunEndPointTransform.position,
-                }); 
+                });
+
+                ShootingSound.Play();
             }
             clipAmmo--;
         }
         else
         {
-            Invoke(nameof(Reload), 2);
+            float reloadDelay = 2f;
+            StartCoroutine(ReloadWithDelay(reloadDelay));
         }
         
     }

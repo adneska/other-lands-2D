@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
+    [SerializeField] AudioSource ShootingSound;
+
     private UIHandler handler;
 
     [SerializeField] private Transform pfBullet;
@@ -77,6 +79,7 @@ public class PlayerAimWeapon : MonoBehaviour
             {
                 if (Time.time >= nextShootTime)
                 {
+                    ShootingSound.Play();
                     nextShootTime = Time.time + FIRE_RATE;
                     OnShoot?.Invoke(this, new OnShootEventArgs
                     {
