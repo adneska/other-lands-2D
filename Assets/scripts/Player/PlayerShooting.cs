@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private Transform pfBullet;
-    [SerializeField] private Transform bullet;
     private void Awake()
     {
         GetComponent<PlayerAimWeapon>().OnShoot += PlayerShooting_OnShoot;

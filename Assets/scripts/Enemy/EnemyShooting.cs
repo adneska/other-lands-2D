@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] private Transform pfBullet;
-    [SerializeField] private Transform bullet;
     private void Awake()
     {
         GetComponent<EnemyShootingRange>().OnShoot += EnemyShooting_OnShoot;

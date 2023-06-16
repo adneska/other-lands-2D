@@ -41,6 +41,16 @@ public class UIHandler : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }   
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void Menu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        GameIsPaused = false;
     }
     public void GameOver()
     {
@@ -50,8 +60,7 @@ public class UIHandler : MonoBehaviour
         scoreTMP.text = $"¬аш счет: {score}";
 
         gameOverMenuUI.SetActive(true);
-        pauseMenuUI.SetActive(false);
-        
+        pauseMenuUI.SetActive(false);        
     }
     public void TryAgain()
     {
@@ -65,14 +74,6 @@ public class UIHandler : MonoBehaviour
     {
         text.text = $"{e.updateCurrentClip}/{e.updateMaxClipSize}|{e.updateCurrentAmmo}/{e.updateMaxAmmoSize}";
     }
-    public void Menu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        GameIsPaused = false;
-    }
-    public void Quit()
-    {
-        Application.Quit();
-    }
+    
+    
 }

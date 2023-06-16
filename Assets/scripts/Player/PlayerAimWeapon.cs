@@ -6,9 +6,6 @@ public class PlayerAimWeapon : MonoBehaviour
 {
     [SerializeField] AudioSource ShootingSound;
 
-    private UIHandler handler;
-
-    [SerializeField] private Transform pfBullet;
     [SerializeField] private Light2D weaponLight;
     private Transform aimTransform;
     private Transform aimGunEndPointTransform;
