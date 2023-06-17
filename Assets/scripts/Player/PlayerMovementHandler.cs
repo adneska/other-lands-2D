@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 
 public class PlayerMovementHandler : MonoBehaviour
 {
     public static PlayerMovementHandler Instance { get; private set; } 
-
 
     [SerializeField] private float _Speed = 5f;
     private Animator _animator;
@@ -17,18 +13,15 @@ public class PlayerMovementHandler : MonoBehaviour
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
 
-
     //animation states
     const string IdleAnimation = "IdleAnimation";
     const string WalkAnimation = "WalkAnimation";
-
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
-
     private void FixedUpdate()
     {
         _smoothedMovementInput = Vector2.SmoothDamp(

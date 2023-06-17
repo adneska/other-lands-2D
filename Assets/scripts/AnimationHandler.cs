@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
@@ -24,8 +22,6 @@ public class AnimationHandler : MonoBehaviour
             ChangeAnimationState(EnemyIdle);
         }
     }
-    
-    
     private void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;

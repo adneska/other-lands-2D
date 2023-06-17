@@ -21,14 +21,11 @@ public class EnemyShootingRange : MonoBehaviour
         public Vector3 gunEndPointPosition;
         public Vector3 gunStartPointPosition;
     }
-
     public event EventHandler<OnShootEventArgs> OnShoot;
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
     }
-
-
     void FixedUpdate()
     {
         aimTransform = transform.Find("Aim");        
@@ -50,8 +47,7 @@ public class EnemyShootingRange : MonoBehaviour
         Reload();
     }
     private void HandleShoot()
-    {
-        
+    {        
         if (clipAmmo > 0)
         {            
             if (Time.time >= nextShootTime)
@@ -72,8 +68,7 @@ public class EnemyShootingRange : MonoBehaviour
         {
             float reloadDelay = 2f;
             StartCoroutine(ReloadWithDelay(reloadDelay));
-        }
-        
+        }        
     }
     private void OnDrawGizmos()
     {

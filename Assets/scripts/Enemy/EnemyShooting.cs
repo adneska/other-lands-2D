@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -9,13 +7,10 @@ public class EnemyShooting : MonoBehaviour
     {
         GetComponent<EnemyShootingRange>().OnShoot += EnemyShooting_OnShoot;
     }
-
     private void EnemyShooting_OnShoot(object sender, EnemyShootingRange.OnShootEventArgs e)
     {
         Transform bulletTransform = Instantiate(pfBullet, e.gunEndPointPosition, Quaternion.identity);
-
         Vector3 shootDir = (e.gunEndPointPosition - e.gunStartPointPosition).normalized;
-
         bulletTransform.GetComponent<Bullet>().Setup(shootDir);
     }
 }

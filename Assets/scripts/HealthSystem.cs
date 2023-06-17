@@ -1,6 +1,4 @@
 using System;
-using System.Diagnostics;
-
 public class HealthSystem
 {
     public event EventHandler OnHealthChanged;
@@ -14,12 +12,10 @@ public class HealthSystem
         this.healthMax = healthMax;
         health = healthMax;
     }
-
     public float GetHealthPercent()
     {
         return (float)health / healthMax;
     }
-
     public void Damage(int amount)
     {
         health -= amount;
@@ -34,7 +30,6 @@ public class HealthSystem
             Die();
         }
     }
-
     public void Die()
     {
         if (OnDead != null) OnDead(this, EventArgs.Empty);

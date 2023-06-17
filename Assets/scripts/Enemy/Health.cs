@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -10,8 +8,6 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject WeaponPF;
 
     public event EventHandler OnDead;
-    
-
     private void Setup(HealthSystem healthSystem)
     {
         this.healthSystem = healthSystem;
@@ -32,7 +28,6 @@ public class Health : MonoBehaviour
         HealthSystem healthSystem = new HealthSystem(100);
         Setup(healthSystem);
     }
-
     public void Damage()
     {
         int damageAmount = UnityEngine.Random.Range(5, 20);

@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
     private static List<Target> targetList;
-
     public static Target GetClosest(Vector3 position, float maxRange)
     {
         Target closest = null;

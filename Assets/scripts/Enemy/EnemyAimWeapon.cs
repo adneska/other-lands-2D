@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAimWeapon : MonoBehaviour
@@ -8,7 +5,6 @@ public class EnemyAimWeapon : MonoBehaviour
     [SerializeField] private Transform pfBullet;    
     private Transform aimTransform;
     private GameObject playerObject;
-
     
     private void Awake()
     {
@@ -37,6 +33,5 @@ public class EnemyAimWeapon : MonoBehaviour
             AimLocalScale.y = +1f;
         }
         aimTransform.localScale = AimLocalScale;
-    }
-    
+    }    
 }

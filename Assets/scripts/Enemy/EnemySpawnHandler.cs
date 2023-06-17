@@ -14,7 +14,6 @@ public class EnemySpawnHandler : MonoBehaviour
     {
         StartCoroutine(SpawnEnemies());
     }
-
     private IEnumerator SpawnEnemies()
     {
         while (true)
@@ -36,12 +35,10 @@ public class EnemySpawnHandler : MonoBehaviour
             }
         }
     }
-
     public static void DecreaseEnemyCount()
     {
         currentEnemies--;
     }
-
     private Transform GetRandomChild()
     {
         Transform[] childObjects = GetComponentsInChildren<Transform>();
@@ -54,12 +51,10 @@ public class EnemySpawnHandler : MonoBehaviour
                 validChildren.Add(child);
             }
         }
-
         if (validChildren.Count > 0)
         {
             return validChildren[Random.Range(0, validChildren.Count)];
         }
-
         return null;
     }
 }

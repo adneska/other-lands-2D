@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -32,13 +30,11 @@ public class PlayerHealth : MonoBehaviour
         HealthSystem healthSystem = new HealthSystem(100);
         Setup(healthSystem);
     }
-
     public void Damage()
     {
         int damageAmount = UnityEngine.Random.Range(5, 20);
         healthSystem.Damage(damageAmount);
     }
-
     public HealthSystem GetHealthSystem()
     {
         return healthSystem;

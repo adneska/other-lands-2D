@@ -27,7 +27,6 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         public int updateCurrentClip, updateMaxClipSize, updateCurrentAmmo, updateMaxAmmoSize;
     }
-
     private void Awake()
     {
         currentClip = 15;
@@ -41,13 +40,10 @@ public class PlayerAimWeapon : MonoBehaviour
         aimGunEndPointTransform = aimTransform.Find("GunEndPointPosition");
         aimGunStartPointTransform = aimTransform.Find("GunStartPointPosition");
     }
-
-    // Update is called once per frame
     private void Update()
     {
         if (!UIHandler.GameIsPaused) HandleAiming();
     }
-
     private void HandleAiming()
     {
         Vector3 mousePosition = GetMouseWorldPosition();
@@ -107,7 +103,6 @@ public class PlayerAimWeapon : MonoBehaviour
         }
         UpdateAmmoTextUI();
     }
-
     private void UpdateAmmoTextUI()
     {
         OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs
@@ -118,7 +113,6 @@ public class PlayerAimWeapon : MonoBehaviour
             updateMaxAmmoSize = maxAmmoSize
         });
     }
-
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

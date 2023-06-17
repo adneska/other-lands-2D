@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System;
 using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour
@@ -16,12 +13,10 @@ public class UIHandler : MonoBehaviour
     public static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject gameOverMenuUI;
-
     private void Start()
     {
         player.GetComponent<PlayerAimWeapon>().OnAmmoChanged += UpdateAmmoText;
-    }
-    
+    }    
     public void PauseMenu()
     {
         if (GameIsPaused)
@@ -74,6 +69,4 @@ public class UIHandler : MonoBehaviour
     {
         text.text = $"{e.updateCurrentClip}/{e.updateMaxClipSize}|{e.updateCurrentAmmo}/{e.updateMaxAmmoSize}";
     }
-    
-    
 }

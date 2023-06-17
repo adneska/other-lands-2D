@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using Pathfinding;
 
@@ -14,7 +11,6 @@ public class EnemyHandler : MonoBehaviour
         if (aiPath.desiredVelocity.x > 0 || aiPath.desiredVelocity.y > 0)
             SetWalkAnimation();
         else SetIdleAnimation();
-
     }
     public void SetWalkAnimation()
     {
@@ -24,7 +20,6 @@ public class EnemyHandler : MonoBehaviour
     {
         SetAnimation(false);
     }
-
     private void SetAnimation(bool state)
     {
         animationHandler.UpdateEnemyAnimation(state);
